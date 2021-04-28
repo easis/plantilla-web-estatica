@@ -1,0 +1,45 @@
+---
+
+---
+<!DOCTYPE html>
+<html{{ " "~lang if lang }}>
+
+    <head>
+
+        {# 
+            Hay que declarar el charset lo antes posible (en los primeros 
+            1024 bytes, a ser posible) para que el navegador pueda preaplicar
+            algunas configuraciones y para evitar ataques de inyección de codificación
+            https://owasp.org/www-project-web-security-testing-guide/latest/6-Appendix/D-Encoded_Injection 
+        #}
+        <meta charset="utf-8">
+
+        {{ ("<title>"~title~"</title>" if title) | safe }}
+
+        <!-- META -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% for k, v in meta %}{{ ('<meta name="'~k~'" content="'~v~'">') | safe  }}{% endfor %}
+        <!-- /META -->
+
+        <!-- OPEN-GRAPH -->
+        {% for k, v in og %}{{ ('<meta property="og:'~k~'" content="'~v~'">') | safe  }}
+        {% endfor %}
+        <!-- /OPEN-GRAPH -->
+
+        <!-- TWITTER-CARD -->
+        <meta name="twitter:card" content="summary">
+        {% for k, v in twitter %}{{ ('<meta name="twitter:'~k~'" content="'~v~'">') | safe  }}
+        {% endfor %}
+        <!-- /TWITTER-CARD -->
+
+    </head>
+
+    <body>
+
+        {{ content | safe }}
+
+    </body>
+
+</html>
+
+<!-- {{ page.url | url }} -->
