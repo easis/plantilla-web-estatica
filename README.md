@@ -7,22 +7,23 @@ El objetivo es crear un proyecto genérico, configurable y extensible que pueda 
     <summary>Características</summary>
 
 - [x] Generación de páginas estáticas
-  - [x] Servidor web local para el desarollo ([BrowserSync](https://browsersync.io/))
+- [x] Servidor web local para el desarollo ([BrowserSync](https://browsersync.io/))
   - [x] Hot reload
   - [x] HTTPS & HTTP/2 
-  - [ ] Compilación y minificación de recursos (css y js)
-  - [ ] Optimización de imágenes
+- [ ] Compilación y minificación de recursos (css y js)
+- [ ] Optimización de imágenes
   - [ ] Uso de elementos `<picture>` con `<img srcset="..">` 
   - [ ] Conversión a [WebP](https://developers.google.com/speed/webp)
   - [ ] Generación de _favicons_ para diferentes plataforams
-  - [ ] Metaetiquetas para SEO
-  - [ ] [OpenGraph](https://ogp.me/)
-  - [ ] [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started)
+- [ ] Metaetiquetas para SEO
+  - [x] Clásicas (descripción, keywords, etc)
+  - [x] [OpenGraph](https://ogp.me/)
+  - [x] [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started)
   - [ ] [Structured data](https://developers.google.com/search/docs/guides/intro-structured-data)
-  - [ ] [Web Manifest](https://developer.mozilla.org/es/docs/Web/Manifest) y [PWA](https://web.dev/progressive-web-apps/)
-  - [ ] Analíticas sin cookies (para que no salga el dichoso cartelito)
-  - [ ] CI/CD con [Lighthouse](https://developers.google.com/web/tools/lighthouse?hl=es) para medir el rendimiento de tu página antes de subir a producción
-  - [ ] Deploy automático mediante [GitHub Actions](https://github.com/features/actions)
+- [ ] [Web Manifest](https://developer.mozilla.org/es/docs/Web/Manifest) y [PWA](https://web.dev/progressive-web-apps/)
+- [ ] Analíticas sin cookies (para que no salga el dichoso cartelito)
+- [ ] CI/CD con [Lighthouse](https://developers.google.com/web/tools/lighthouse?hl=es) para medir el rendimiento de tu página antes de subir a producción
+- [ ] Deploy automático mediante [GitHub Actions](https://github.com/features/actions)
 </details>
 
 <details>
