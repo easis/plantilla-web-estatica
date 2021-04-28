@@ -2,7 +2,7 @@
 
 ---
 <!DOCTYPE html>
-<html{{ " "~lang if lang }}>
+<html{{ (' lang="'~lang~'"' if lang) | safe }}>
 
     <head>
 
@@ -32,6 +32,13 @@
         {% endfor %}
         <!-- /TWITTER-CARD -->
 
+        {{ ('<link rel="manifest" href="'~manifest~'">' if manifest) | safe  }}
+
+        {# 
+            El theme-color permite a algunos navegadores personalizar algunos aspectos del navegador para que
+            coincidan con el color escogido.
+        #}
+        <meta name="theme-color" content="#fafafa">
     </head>
 
     <body>
