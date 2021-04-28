@@ -8,6 +8,7 @@
     "build:11ty": "cross-env NODE_ENV=development eleventy",
     "dev": "cross-env NODE_ENV=development run-s clean build:11ty",
     "dev:11ty": "cross-env NODE_ENV=development eleventy",
+    "serve": "eleventy --serve",
     "clean": "rimraf dist _site",
     "test": "echo \"test\""
   },
@@ -29,6 +30,7 @@
   "homepage": "https://github.com/easis/plantilla-web-estatica#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "chalk": "^4.1.1",
     "cross-env": "^7.0.3",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2"
