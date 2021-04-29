@@ -6,9 +6,12 @@ const sourcePath = 'src';
 /// output
 const outputPath = 'dist';
 
+// otros
+const isProduction = (process.env.NODE_ENV === "production")
+
 module.exports = {
-    isProduction: (process.env.NODE_ENV === "production"),
-    
+    isProduction: isProduction,
+
     source: {
         path: sourcePath,
         includes: "_includes"
@@ -20,7 +23,13 @@ module.exports = {
     applyCustomConfig: (eleventyConfig) => {
         const configDebug = require('./config/debug');
         configDebug(eleventyConfig, {
-            isDevelopment: !this.isProduction
+            isProduction: isProduction
+        });
+
+        const configStyle = require('./config/style');
+        configStyle(eleventyConfig, {
+            outputPath: outputPath,
+            isProduction: isProduction
         });
     }
 };
