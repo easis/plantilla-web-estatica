@@ -29,7 +29,7 @@ El objetivo es crear un proyecto genérico, configurable y extensible que pueda 
 <details>
     <summary>Requisitos</summary>
 
-- [Node](https://nodejs.org/es/)
+- [Node](https://nodejs.org/es/) (_verisón mínima: 14_)
 - Un editor de código chulo y extendible como [Visual Studio Code](https://code.visualstudio.com/)
 </details>
 
