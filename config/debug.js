@@ -1,9 +1,7 @@
-const UserConfig = require('@11ty/eleventy');
-
 const fs = require('fs').promises;
 
 const defaultConfig = {
-    isDevelopment: false,
+    isProduction: false,
     errorPageFile: false,
     serverIp: 'localhost',
     serverPort: 6023
@@ -20,7 +18,7 @@ module.exports = (eleventyConfig, options = {}) => {
     options = {...defaultConfig, ...options};
 
     // configuración que solo se aplica en modo de desarrollo
-    if (!options.isDevelopment) {
+    if (options.isProduction) {
         return;
     }
 

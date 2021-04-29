@@ -1,10 +1,9 @@
-const { UserConfig } = require('@11ty/eleventy');
 const chalk = require('chalk');
 const Config = require('./config');
-
+ 
 /**
  * Inicio de la configuración de eleventy.
- * @param {UserConfig} eleventyConfig 
+ * @param {UserConfig} eleventyConfig Configuración de eleventy
  */
 function doConfig(eleventyConfig) {
 
@@ -13,6 +12,11 @@ function doConfig(eleventyConfig) {
  
     // añadimos la configuración propia
     Config.applyCustomConfig(eleventyConfig);
+
+    eleventyConfig.addPassthroughCopy({
+        "src/assets/scripts": "scripts",
+        //"src/assets/styles": "styles"
+    });
 
     return {
         // configuración de directorios
