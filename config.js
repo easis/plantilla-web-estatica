@@ -31,5 +31,11 @@ module.exports = {
             outputPath: outputPath,
             isProduction: isProduction
         });
+
+        const configScripts = require("./config/scripts");
+        configScripts(eleventyConfig, {
+            outputPath: outputPath,
+            isProduction: isProduction
+        });
     }
 };
