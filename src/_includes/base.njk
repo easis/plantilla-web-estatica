@@ -1,8 +1,5 @@
----
-
----
 <!DOCTYPE html>
-<html{{ (' lang="'~lang~'"' if lang) | safe }}>
+<html class="no-js" lang="{{ lang }}">
 
     <head>
 
@@ -39,11 +36,18 @@
             coincidan con el color escogido.
         #}
         <meta name="theme-color" content="#fafafa">
+
+        <style>h1 { background-color: yellow; }</style>
+        <style>h2 { background-color: yellow; }</style>
+
+        <link rel="stylesheet" href="/styles/app.scss">
     </head>
 
     <body>
 
         {{ content | safe }}
+
+        <script src="/scripts/index.js"></script>
 
     </body>
 
