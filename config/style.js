@@ -1,5 +1,4 @@
 const path = require("path");
-const sass = require('sass');
 
 const defaultConfig = {
     rootPath: "./",
@@ -14,7 +13,6 @@ module.exports = function (eleventyConfig, options = {}) {
     options = { ...defaultConfig, ...options };
 
     const nodeModulesPath = path.resolve(options.rootPath, "node_modules");
-    console.log("style", nodeModulesPath);
 
     eleventyConfig.on("beforeBuild", () => {
         // Custom Code
