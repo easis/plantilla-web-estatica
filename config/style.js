@@ -1,19 +1,28 @@
 const path = require("path");
+const sass = require('sass');
 
 const defaultConfig = {
-    outputPath: "./",
+    rootPath: "./",
+    inputPath: "./src",
+    outputPath: "./_site",
     isProduction: false
 };
 
 module.exports = function (eleventyConfig, options = {}) {
 
     // sobreescribimos las opciones por defecto por las opciones proporcionadas por el usuario
-    options = {...defaultConfig, ...options};
+    options = { ...defaultConfig, ...options };
 
-    const stylesPath = path.join(options.outputPath, "styles");
+    const nodeModulesPath = path.resolve(options.rootPath, "node_modules");
+    console.log("style", nodeModulesPath);
+
+    eleventyConfig.on("beforeBuild", () => {
+        // Custom Code
+    });
 
     eleventyConfig.addPlugin(require("eleventy-plugin-sass"), {
-        outputDir: stylesPath,
+        // ruta donde se escribirán los archivo
+        outputDir: options.outputPath,
 
         // indicamos si queremos remapear las rutas
         remap: true,
@@ -26,8 +35,15 @@ module.exports = function (eleventyConfig, options = {}) {
 
         // opciones para pasar a libSass
         sassOptions: {
-            outputStyle: options.isProduction ? "compressed" : "expanded", // valores posibles: nested, expanded, compact, compressed
+            outputStyle: options.isProduction ? "compressed" : "expanded", // valores posibles: nested, expanded, compact, compressed,
+
+            // indicamos las carpetas que queremos que LibSass incluya
+            includePaths: [
+                // indicamos la ruta node_modules
+                `${nodeModulesPath}`
+            ]
         }
     });
+
 
 };
