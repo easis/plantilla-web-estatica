@@ -1,6 +1,7 @@
 const chalk = require("chalk");
 const Image = require("@11ty/eleventy-img");
 const path = require("path");
+const fs = require('fs')
 
 /**
  * Referencias:
@@ -17,7 +18,7 @@ module.exports = function (eleventyConfig, options = {}) {
     const favicons = [];
     const faviconsMetadata = [];
 
-    if (options.faviconPath) {
+    if (options.faviconPath && fs.existsSync(options.faviconPath)) {
 
         const genericWidths = [32, 57, 76, 96, 128, 192, 228, 512];
         const androidWidths = [196];
