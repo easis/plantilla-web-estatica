@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ lang }}">
+
+    <head>
+
+        {# 
+            Hay que declarar el charset lo antes posible (en los primeros 
+            1024 bytes, a ser posible) para que el navegador pueda preaplicar
+            algunas configuraciones y para evitar ataques de inyección de codificación
+            https://owasp.org/www-project-web-security-testing-guide/latest/6-Appendix/D-Encoded_Injection 
+        #}
+        <meta charset="utf-8">
+
+        {{ ("<title>"~title~"</title>" if title) | safe }}
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% meta %}
+        {% favicons %}
+
+        {{ ('<link rel="manifest" href="'~manifest~'">' if manifest) | safe  }}
+
+        {# 
+            El theme-color permite a algunos navegadores personalizar algunos aspectos del navegador para que
+            coincidan con el color escogido.
+        #}
+        <meta name="theme-color" content="#fafafa">
+
+        <link rel="stylesheet" href="/styles/app.css">
+    </head>
+
+    <body>
+
+        <!-- HEADER -->
+        {% include "header.njk" %}
+        <!-- /HEADER -->
+
+        <main>
+
+            <!-- CONTENT -->
+            <div class="container">
+                {{ content | safe }}
+            </div>
+            <!-- /CONTENT -->
+
+            <!-- FOOTER -->
+            {% include "footer.njk" %}
+            <!-- /FOOTER -->
+
+        </main>
+
+        <script src="/scripts/index.js"></script>
+
+    </body>
+
+</html>
+
+<!--| {{ page.url | url }} |-->
