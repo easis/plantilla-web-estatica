@@ -13,21 +13,10 @@
 
         {{ ("<title>"~title~"</title>" if title) | safe }}
 
-        <!-- META -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% for k, v in meta %}{{ ('<meta name="'~k~'" content="'~v~'">') | safe  }}{% endfor %}
-        <!-- /META -->
 
-        <!-- OPEN-GRAPH -->
-        {% for k, v in og %}{{ ('<meta property="og:'~k~'" content="'~v~'">') | safe  }}
-        {% endfor %}
-        <!-- /OPEN-GRAPH -->
-
-        <!-- TWITTER-CARD -->
-        <meta name="twitter:card" content="summary">
-        {% for k, v in twitter %}{{ ('<meta name="twitter:'~k~'" content="'~v~'">') | safe  }}
-        {% endfor %}
-        <!-- /TWITTER-CARD -->
+        {% meta %}
+        {% favicons %}
 
         {{ ('<link rel="manifest" href="'~manifest~'">' if manifest) | safe  }}
 
@@ -37,15 +26,32 @@
         #}
         <meta name="theme-color" content="#fafafa">
 
-        <style>h1 { background-color: yellow; }</style>
-        <style>h2 { background-color: yellow; }</style>
-
-        <link rel="stylesheet" href="/styles/app.scss">
+        <link rel="stylesheet" href="/styles/app.css">
     </head>
 
     <body>
 
-        {{ content | safe }}
+        <!-- HEADER -->
+        {% include "header.njk" %}
+        <!-- /HEADER -->
+
+        <main>
+
+            <!-- CONTENT -->
+            <div class="container">
+                {{ content | safe }}
+            </div>
+            <!-- /CONTENT -->
+
+            <!-- FOOTER -->
+            {% include "footer.njk" %}
+            <!-- /FOOTER -->
+
+        </main>
+
+        <!-- FAB -->
+        {% include "fab.njk" %}
+        <!-- /FAB -->
 
         <script src="/scripts/index.js"></script>
 
@@ -53,4 +59,4 @@
 
 </html>
 
-<!-- {{ page.url | url }} -->
+<!--| {{ page.url | url }} |-->
