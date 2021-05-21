@@ -1,5 +1,5 @@
-const chalk = require('chalk');
-const Config = require('./config');
+const chalk = require("chalk");
+const Config = require("./config");
  
 /**
  * Inicio de la configuración de eleventy.
@@ -7,8 +7,8 @@ const Config = require('./config');
  */
 function doConfig(eleventyConfig) {
 
-    console.debug(chalk.bgBlueBright.white('plantilla-web-estatica'), chalk.blue('INICIO')), Config;
-    console.debug(chalk.bgBlueBright.white('plantilla-web-estatica'), 'Modo: ', Config.isProduction ? chalk.green('PRODUCCIÓN') : chalk.yellow('DESARROLLO'));
+    console.debug(chalk.bgBlueBright.white("plantilla-web-estatica"), chalk.blue("INICIO"));
+    console.debug(chalk.bgBlueBright.white("plantilla-web-estatica"), "Modo:", Config.isProduction ? chalk.green("PRODUCCIÓN") : chalk.yellow("DESARROLLO"));
  
     // añadimos la configuración propia
     Config.applyCustomConfig(eleventyConfig);
